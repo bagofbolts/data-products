@@ -1,0 +1,44 @@
+---
+title: "Plant Growth Experiment"
+author: "Kelvin DeCosta"
+date: "August 26, 2020"
+output: ioslides_presentation
+---
+
+## Code
+
+Results from an experiment to compare yields (as measured by dried weight of plants) obtained under a control and two different treatment conditions.
+
+The following is the `R` source code:
+
+```{r, echo=TRUE, eval=FALSE}
+library(datasets)
+library(plotly)
+
+plot_ly(
+  data = PlantGrowth,
+  x = ~ group,
+  y = ~ weight,
+  color = ~ as.factor(group),
+  colors = "Dark2",
+  size = 5,
+  type = "box"
+) %>% layout(title = "Plant Growth")
+```
+
+## Plot
+
+```{r, echo=FALSE, eval=TRUE, message=FALSE, warning=FALSE}
+library(datasets)
+library(plotly)
+
+plot_ly(
+  data = PlantGrowth,
+  x = ~ group,
+  y = ~ weight,
+  color = ~ as.factor(group),
+  colors = "Dark2",
+  size = 5,
+  type = "box"
+) %>% layout(title = "Plant Growth")
+```
