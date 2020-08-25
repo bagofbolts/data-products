@@ -1,0 +1,27 @@
+---
+title: "Notable Cities in India"
+author: "Kelvin DeCosta"
+date: "August 26, 2020"
+output: 
+  html_document: 
+    keep_md: yes
+---
+
+The data for this map is taken from the [Indian Cities Database hosted on simplemaps](https://simplemaps.com/data/in-cities).
+
+
+```{r, echo=TRUE, results=FALSE}
+# Load data
+data <- "https://simplemaps.com/static/data/country-cities/in/in.csv"
+df <- read.csv(url(data))
+```
+
+```{r Leaflet, echo=TRUE}
+# Display map
+library(leaflet)
+
+df %>%
+  leaflet() %>%
+  addTiles() %>%
+  addMarkers(clusterOptions = markerClusterOptions())
+```
